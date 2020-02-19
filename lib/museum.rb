@@ -42,4 +42,9 @@ class Museum
     return nil if ticket_lottery_contestants(exhibit).length == 0
     ticket_lottery_contestants(exhibit).sample.name
   end
+
+  def announce_lottery_winner(exhibit)
+    return "No winners for this lottery" if draw_lottery_winner(exhibit) == nil
+    return "#{draw_lottery_winner(exhibit)} has won the Dead Sea Scrolls exhibit lottery"
+  end
 end

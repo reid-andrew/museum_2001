@@ -121,14 +121,13 @@ class MuseumTest < Minitest::Test
     @dmns.admit(@patron_1)
     @dmns.admit(@patron_2)
     @dmns.admit(@patron_3)
-
     expected1 = "No winners for this lottery"
+
     assert_equal expected1, @dmns.announce_lottery_winner(@gems_and_minerals)
 
-    exhibit1 = mock
-    exhibit1.expects(:draw_lottery_winner).returns("Bob")
-
+    @dmns.stubs(:draw_lottery_winner).returns("Bob")
     expected2 = "Bob has won the Dead Sea Scrolls exhibit lottery"
+
     assert_equal expected2, @dmns.announce_lottery_winner(@dead_sea_scrolls)
   end
 end
