@@ -106,7 +106,7 @@ class MuseumTest < Minitest::Test
     @dmns.admit(@patron_3)
 
     assert_nil @dmns.draw_lottery_winner(@gems_and_minerals)
-    assert_instance_of Patron, draw_lottery_winner(@dead_sea_scrolls)
-    refute_equal @patron_2, draw_lottery_winner(@dead_sea_scrolls)
+    assert_instance_of String, @dmns.draw_lottery_winner(@dead_sea_scrolls)
+    refute_equal @patron_2.name, @dmns.draw_lottery_winner(@dead_sea_scrolls)
   end
 end

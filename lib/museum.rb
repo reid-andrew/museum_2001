@@ -37,4 +37,9 @@ class Museum
       (patron.interests.include? exhibit.name) && (patron.spending_money < exhibit.cost)
     end
   end
+
+  def draw_lottery_winner(exhibit)
+    return nil if ticket_lottery_contestants(exhibit).length == 0
+    ticket_lottery_contestants(exhibit).sample.name
+  end
 end
