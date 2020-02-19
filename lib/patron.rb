@@ -10,4 +10,7 @@ class Patron
     @interests = []
   end
 
+  def add_interest(interest)
+    @interests << interest
+  end
 end
