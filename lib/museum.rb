@@ -47,4 +47,15 @@ class Museum
     return "No winners for this lottery" if draw_lottery_winner(exhibit) == nil
     return "#{draw_lottery_winner(exhibit)} has won the Dead Sea Scrolls exhibit lottery"
   end
+
+  # def patrons_of_exhibits
+  #   exhibits_with_patrons = Hash.new([])
+  #   exhibits_by_cost = @exhibits.sort_by(@exhibits.cost)
+  #   exhibits_by_cost.each do |exhibit|
+  #     exhibits_with_patrons[exhibit] = @patrons.select do |patron|
+  #       (patron.interests.include? exhibit.name) && (patron.spending_money > exhibit.cost)
+  #       patron.spending_money -= exhibit.cost
+  #     end
+  #   end
+  # end
 end
