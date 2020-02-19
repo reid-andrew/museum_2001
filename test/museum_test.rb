@@ -5,7 +5,7 @@ require './lib/museum'
 
 class MuseumTest < Minitest::Test
   def setup
-    @museum = Museum.new
+    @museum = Museum.new("Denver Museum of Nature and Science")
   end
 
   def test_it_exists
