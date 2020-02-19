@@ -15,5 +15,6 @@ class PatronTest < Minitest::Test
   def test_it_has_attributes
     assert_equal "Bob", @patron.name
     assert_equal 20, @patron.spending_money
+    assert_equal [], @patron.interests
   end
 end
