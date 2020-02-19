@@ -130,4 +130,29 @@ class MuseumTest < Minitest::Test
 
     assert_equal expected2, @dmns.announce_lottery_winner(@dead_sea_scrolls)
   end
+
+  def test_it_attends_exhibits_on_admission
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
+    @tj = Patron.new("TJ", 7)
+    @tj.add_interest("IMAX")
+    @tj.add_interest("Dead Sea Scrolls")
+    @dmns.admit(@tj)
+    @patron_1 = Patron.new("Bob", 10)
+    @patron_1.add_interest("Dead Sea Scrolls")
+    @patron_1.add_interest("IMAX")
+    @dmns.admit(@patron_1)
+    @patron_2 = Patron.new("Sally", 20)
+    @patron_2.add_interest("IMAX")
+    @patron_2.add_interest("Dead Sea Scrolls")
+    @dmns.admit(@patron_2)
+    expected = {
+      @dead_sea_scrolls => [@tj, @patron_1, @patron_2],
+      @imax => [@patron_1, @patron_2]
+    }
+
+    assert_equal expected, @dmns.patrons_of_exhibits
+
+  end
 end
