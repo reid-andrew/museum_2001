@@ -47,4 +47,13 @@ class MuseumTest < Minitest::Test
     assert_equal [@dead_sea_scrolls, @gems_and_minerals], @dmns.recommend_exhibits(@patron_1)
     assert_equal [@imax], @dmns.recommend_exhibits(@patron_2)
   end
+
+  def test_it_admits_patrons
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
+    expected = [@patron_1, @patron_2, @patron_3]
+
+    assert_equal expected, @dmns.patrons
+  end
 end
