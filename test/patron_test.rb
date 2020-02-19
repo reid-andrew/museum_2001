@@ -17,4 +17,12 @@ class PatronTest < Minitest::Test
     assert_equal 20, @patron.spending_money
     assert_equal [], @patron.interests
   end
+
+  def test_it_adds_interests
+    @patron.add_interest("Dead Sea Scrolls")
+    @patron.add_interest("Gems and Minerals")
+    expected = ["Dead Sea Scrolls", "Gems and Minerals"]
+
+    assert_equal expected, @patron.interests
+  end
 end
