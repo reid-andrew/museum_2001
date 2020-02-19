@@ -16,6 +16,8 @@ class MuseumTest < Minitest::Test
     @patron_1.add_interest("Gems and Minerals")
     @patron_2 = Patron.new("Sally", 20)
     @patron_2.add_interest("IMAX")
+    @patron_3 = Patron.new("Johnny", 5)
+    @patron_3.add_interest("Dead Sea Scrolls")
   end
 
   def test_it_exists
@@ -25,6 +27,7 @@ class MuseumTest < Minitest::Test
   def test_it_has_attributes
     assert_equal  "Denver Museum of Nature and Science", @dmns.name
     assert_equal [], @dmns.exhibits
+    assert_equal [], @dmns.patrons
   end
 
   def test_it_adds_exhibits
