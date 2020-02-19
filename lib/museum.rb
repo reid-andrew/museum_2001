@@ -15,9 +15,7 @@ class Museum
   end
 
   def recommend_exhibits(patron)
-    exhibits.select do |exhibit|
-      patron.interests.include? exhibit.name
-    end
+    exhibits.select { |exhibit| patron.interests.include? exhibit.name }
   end
 
   def admit(patron)
