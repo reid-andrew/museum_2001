@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'mocha/minitest'
-require './patron/exhibit'
+require './lib/patron'
 
 class PatronTest < Minitest::Test
   def setup
