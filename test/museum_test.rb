@@ -3,6 +3,7 @@ require 'minitest/pride'
 require 'mocha/minitest'
 require './lib/museum'
 require './lib/exhibit'
+require './lib/patron'
 
 class MuseumTest < Minitest::Test
   def setup
@@ -33,5 +34,10 @@ class MuseumTest < Minitest::Test
     expected = [@gems_and_minerals, @dead_sea_scrolls, @imax]
 
     assert_equal expected, @dmns.exhibits
+  end
+
+  def test_it_recommends_exhibits
+    assert_equal [@dead_sea_scrolls, @gems_and_minerals], @dmns.recommend_exhibits(@patron_1)
+    assert_equal [@imax], @dmns.recommend_exhibits(@patron_2)
   end
 end
