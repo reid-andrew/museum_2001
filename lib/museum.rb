@@ -33,7 +33,6 @@ class Museum
   end
 
   def ticket_lottery_contestants(exhibit)
-
     @patrons.select do |patron|
       (patron.interests.include? exhibit.name) && (patron.spending_money < exhibit.cost)
     end
